@@ -1,31 +1,22 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-
-import LoginPage from "./login";
-import Dashboard from "./pages/Dashboard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
-import CreateTask from "./pages/CreateTask";
+import Calendar from "./pages/Calendar";
 import Profile from "./pages/Profile";
 
-function App() {
+const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-
-        {/* Default route → Login */}
-        <Route path="/" element={<LoginPage />} />
-
-        {/* App routes */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/tasks" element={<Tasks />} />
-        <Route path="/create" element={<CreateTask />} />
+        <Route path="/calendar" element={<Calendar />} />
         <Route path="/profile" element={<Profile />} />
-
-        {/* fallback */}
-        <Route path="*" element={<Navigate to="/" />} />
-
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
